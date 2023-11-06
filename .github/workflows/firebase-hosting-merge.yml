@@ -9,12 +9,45 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    #env:
+      #CI: false
+      #BASE_URL: ${{ secrets.BASE_URL }}
     steps:
       - uses: actions/checkout@v3
-      - run: npm ci && npm run build
+      #- run: npm ci && npm run build
+      - run: yarn install
+      - run: yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VOLL_343C6 }}'
           channelId: live
           projectId: voll-343c6
+#name: Deploy to Firebase Hosting on merge
+#'on':
+ # push:
+  #  branches:
+   #   - beta
+#jobs:
+ # build_and_deploy:
+  #  runs-on: ubuntu-latest
+   # env:
+    #  CI: false
+    #   REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BETA_BASE_URL }}
+    #   REACT_APP_X_SCHEMA: ${{ secrets.REACT_APP_BETA_X_SCHEMA}}
+    #   REACT_APP_PRODUCT_ID: ${{ secrets.REACT_APP_BETA_PRODUCT_ID }}
+    #   REACT_APP_RAZORPAY_KEY_ID: ${{ secrets.REACT_APP_BETA_RAZORPAY_KEY_ID}}
+    #   REACT_APP_RAZORPAY_SECRET: ${{ secrets.REACT_APP_BETA_RAZORPAY_SECRET}}
+    # steps:
+      # - uses: actions/checkout@v3
+      # - run: yarn install
+      # - run: yarn build
+      # - uses: FirebaseExtended/action-hosting-deploy@v0
+      #   with:
+      #     repoToken: '${{ secrets.GITHUB_TOKEN }}'
+      #     firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHALLENGERS_WEB_BETA }}'
+      #     channelId: live
+      #     projectId: challengers-web-beta
+
+
+          
