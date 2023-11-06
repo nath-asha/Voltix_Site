@@ -1,6 +1,20 @@
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = "http://localhost:8000";
+// const BASE_URL = "http://localhost:8000";
+const BASE_URL = 'http://65.0.122.19:8000';
+
+
+// async function fetchFromBackend<T>(route: string): Promise<T> {
+//   try {
+//     const response: AxiosResponse<T> = await axios.get(`${BASE_URL}/${route}`);
+//     return response.data;
+//   } catch (error) {
+  
+//     console.error('API request error:', error);
+//     throw error;
+//   }
+// }
+
 
 export const fetchProjectById = (projectId: string) => {
   return axios.get(`${BASE_URL}/papi/projects/id?id=${projectId}`);
@@ -26,3 +40,4 @@ export const postContact = (formData: { name: string; phone_no: string; email: s
 export const fetchFaq = () =>{
   return axios.get(`${BASE_URL}/api/faq`);
 }
+// export { fetchFromBackend };

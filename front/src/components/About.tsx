@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../services/api";
+// import { fetchFromBackend } from './services/api'; 
 import './styles/About.css';
 
 interface IAbout {
