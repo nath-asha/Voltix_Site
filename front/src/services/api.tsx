@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const BASE_URL = "http://localhost:8000";
-const BASE_URL = 'http://65.0.122.19:8000';
+const BASE_URL = 'https://voltix-site.onrender.com';
 
 
 // async function fetchFromBackend<T>(route: string): Promise<T> {
